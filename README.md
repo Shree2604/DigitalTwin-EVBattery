@@ -2,13 +2,20 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
-[![Unity](https://img.shields.io/badge/Unity-2021.3+-000000.svg?logo=unity)](https://unity.com/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?logo=streamlit&logoColor=white)](https://streamlit.io/)
 [![MQTT](https://img.shields.io/badge/MQTT-Protocol-purple.svg)](https://mqtt.org/)
+[![Firebase](https://img.shields.io/badge/Firebase-FFCA28?logo=firebase&logoColor=black)](https://firebase.google.com/)
 
-A comprehensive **Digital Twin–based predictive maintenance system** for Electric Vehicle (EV) batteries that integrates IoT sensors, cloud infrastructure, and AI/ML models. This project creates a virtual replica of physical EV battery behavior using Unity 3D and predicts Remaining Useful Life (RUL) through advanced time-series analysis.
+A comprehensive **Digital Twin–based predictive maintenance system** for Electric Vehicle (EV) batteries that integrates IoT sensors, cloud infrastructure, and AI/ML models. This project provides real-time monitoring, predictive analytics, and 3D visualization of battery health status.
 
-![Digital Twin Architecture](docs/images/architecture-diagram.png)
-*System architecture showing IoT-to-Cloud-to-AI pipeline*
+![Digital Twin Architecture](Architecture.png)
+*System architecture showing end-to-end data flow from sensors to visualization*
+
+## 🎥 Demo
+
+[![Watch Demo](https://img.youtube.com/vi/z4uThEmmh6w/0.jpg)](https://youtu.be/z4uThEmmh6w)
+
+[Click here to watch the full demo on YouTube](https://youtu.be/z4uThEmmh6w)
 
 ## 🎯 Project Overview
 
@@ -16,57 +23,106 @@ This system monitors real-time battery health metrics, predicts degradation patt
 - **Extend battery lifespan** through proactive maintenance
 - **Prevent unexpected failures** with early warning systems
 - **Optimize EV operations** using data-driven decisions
-- **Enable industrial integration** via OPC UA interoperability
-
+- **Enable real-time monitoring** with 3D visualization
 
 ## ✨ Key Features
 
-### 🔌 IoT Integration
-- **ESP32 sensor nodes** stream live metrics (voltage, temperature, SoC, SoH)
-- **MQTT protocol** for lightweight, real-time data transmission
-- Configurable sampling rates and alert thresholds
-
-### ☁️ Cloud Connectivity
-- Real-time data ingestion and storage
-- Support for **AWS IoT Core**, **ThingsBoard**, and **Firebase**
-- Scalable architecture for fleet-level monitoring
+### 🔌 Real-time Monitoring
+- **3D Battery Visualization** - Interactive 3D model showing battery health status
+- **Live Metrics** - Real-time monitoring of voltage, temperature, SoC, and SoH
+- **Vehicle Simulation** - 3D models of EV and e-bike with dynamic status updates
 
 ### 🤖 AI/ML Predictive Models
-- **LSTM/GRU networks** for time-series RUL prediction
-- **Random Forest & XGBoost** for failure classification
-- **SHAP/LIME** for model explainability
-- Personalized recommendations based on usage patterns
+- **LSTM Networks** for Remaining Useful Life (RUL) prediction
+- **Health Status Classification** - Categorizes battery health (Excellent, Good, Fair, Poor, Critical)
+- **Anomaly Detection** - Identifies abnormal battery behavior patterns
 
-### 🎮 Digital Twin Visualization
-- **Unity 3D** real-time battery replica
-- Interactive 3D interface showing health status
-- Visual alerts for anomalies and degradation
+### 📊 Interactive Dashboard
+- **Real-time Gauges** - Visual representation of key metrics
+- **Historical Trends** - Time-series analysis of battery parameters
+- **Predictive Analytics** - Forecasts battery degradation and maintenance needs
 
-### ⚙️ Industrial Interoperability
-- **OPC UA** server for standardized data access
-- Compatible with existing industrial systems
-- RESTful APIs for third-party integration
-
-### 📊 Web Dashboard
-- Live metrics visualization with historical trends
-- Predictive analytics and maintenance schedules
-- Customizable alerts and notifications
-
+### ☁️ Cloud Integration
+- **Firebase Realtime Database** - Secure and scalable data storage
+- **RESTful API** - For data retrieval and system control
+- **User Authentication** - Secure access control for different user roles
 
 ## 🚀 Tech Stack
 
-| Layer | Technologies |
-|-------|-------------|
-| **Hardware** | ESP32, Temperature Sensors (DS18B20), Voltage/Current Sensors (INA219) |
-| **Protocols** | MQTT, OPC UA, HTTP/REST, WebSocket |
-| **Cloud** | AWS IoT Core, Firebase Realtime Database, ThingsBoard |
-| **AI/ML** | TensorFlow/Keras (LSTM, GRU), Scikit-learn (RF, XGBoost), SHAP, LIME |
-| **Visualization** | Unity 3D (C#), Plotly, Matplotlib |
-| **Backend** | Python (Flask/FastAPI), Node.js |
-| **Frontend** | Streamlit / React.js |
-| **Languages** | Python, C++, C#, JavaScript |
-| **DevOps** | Docker, Git, GitHub Actions (CI/CD) |
+### Backend
+- **Python 3.8+** - Core programming language
+- **TensorFlow/Keras** - Deep learning models for RUL prediction
+- **Scikit-learn** - Machine learning algorithms
+- **Firebase Admin SDK** - Real-time database integration
 
+### Frontend
+- **Streamlit** - Interactive web dashboard
+- **Plotly** - Interactive data visualization
+- **3D Visualization** - Custom 3D models for battery and vehicles
+
+### IoT & Connectivity
+- **MQTT** - Lightweight messaging protocol for IoT devices
+- **ESP32** - Microcontroller for sensor data collection
+- **REST API** - For system integration
+
+### DevOps
+- **Git** - Version control
+- **Docker** - Containerization
+- **GitHub Actions** - CI/CD pipeline
+
+## 🛠️ Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Shree2604/DigitalTwin-EVBattery.git
+   cd DigitalTwin-EVBattery
+   ```
+
+2. **Set up a virtual environment**
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: .\venv\Scripts\activate
+   ```
+
+3. **Install dependencies**
+   ```bash
+   cd Streamlit
+   pip install -r requirements.txt
+   ```
+
+4. **Configure Firebase**
+   - Create a Firebase project and download the service account JSON file
+   - Place the JSON file in the `Streamlit` directory as `digitaltwin-evbattery-firebase-adminsdk-fbsvc-c087b8aebb.json`
+
+5. **Run the application**
+   ```bash
+   streamlit run streamlit_3d_dashboard.py
+   ```
+
+## 📊 Features in Detail
+
+### 3D Battery Health Visualization
+- Interactive 3D model showing real-time battery status
+- Color-coded health indicators (Green to Red)
+- Dynamic updates based on live sensor data
+
+### Vehicle Simulation
+- 3D models of EV car and e-bike
+- Real-time status updates
+- Animated components based on sensor data
+
+### Analytics Dashboard
+- Real-time gauges for key metrics
+- Historical data visualization
+- Predictive maintenance alerts
+
+## 📈 Data Flow
+
+1. **Data Collection**: ESP32 devices collect sensor data (voltage, temperature, etc.)
+2. **Data Transmission**: MQTT protocol sends data to Firebase in real-time
+3. **Data Processing**: Python backend processes and analyzes the data
+4. **Prediction**: ML models predict battery health and RUL
+5. **Visualization**: Streamlit dashboard displays real-time 3D visualization and analytics
 
 ## 🤝 Contributing
 
@@ -82,7 +138,6 @@ Contributions are welcome! Please follow these steps:
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-
 ## 📧 Contact
 
 For questions or collaboration opportunities:
@@ -90,6 +145,11 @@ For questions or collaboration opportunities:
 - **Email**: shree.xai.dev@gmail.com
 - **LinkedIn**: [Shreeraj Mummidivarapu](https://linkedin.com/in/m-shreeraj)
 - **Project Link**: [https://github.com/Shree2604/DigitalTwin-EVBattery](https://github.com/Shree2604/DigitalTwin-EVBattery)
+
+## 🙏 Acknowledgments
+
+- Built with ❤️ for a sustainable EV future
+- Special thanks to the open-source community for their valuable contributions
 
 <div align="center">
 
